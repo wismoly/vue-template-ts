@@ -20,7 +20,7 @@ mc.install(proxyUrl);
 mc.install(getPlatform);
 mc.install(args);
 mc.install(getSystemInfo);
-<% if (sentry) { %>mc.install(initSentry);
+<% if (sentry) { %>mc.install(initSentry);<% } %>
 
 Vue.prototype.$mc = mc;
 
