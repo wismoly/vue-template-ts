@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import App from '../components/App.vue';
-import router from '../router/index.ts';
+<% if (router) { %>import router from '../router/index.ts';<% } %>
 import '../css/index.less';
 
 import {
@@ -10,7 +10,8 @@ import {
   getPlatform,
   getSystemInfo,
   proxyUrl,
-  args
+  args,
+  <% if (sentry) { %> initSentry,<% } %>
 } from 'mico-base-common';
 
 mc.install(MicoJSBridge);
@@ -19,10 +20,10 @@ mc.install(proxyUrl);
 mc.install(getPlatform);
 mc.install(args);
 mc.install(getSystemInfo);
+<% if (sentry) { %>mc.install(initSentry);
+
 Vue.prototype.$mc = mc;
-import { Dialog, Toast } from 'vant';
-Vue.use(Dialog);
-Vue.use(Toast);
+
 new Vue({
   router,
   render: (h) => h(App)

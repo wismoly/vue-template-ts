@@ -1,6 +1,6 @@
 <template>
   <div class="main_container">
-    <button @click="$router.push('rule')">{{ configText['go'] }}</button>
+    <% if (router) { %> <button @click="$router.push('rule')">{{ configText['go'] }}</button><% } %>
   </div>
 </template>
 
