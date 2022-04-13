@@ -25,6 +25,6 @@ mc.install(getSystemInfo);
 Vue.prototype.$mc = mc;
 
 new Vue({
-  router,
+  <% if (router) { %> router,<% } %>
   render: (h) => h(App)
 }).$mount('#app');
